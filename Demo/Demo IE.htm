@@ -1,0 +1,56 @@
+<HTML>
+
+<head>
+
+<title>Test RTSP Camera ActiveX</title>
+
+</head>
+
+<body bgcolor="grey">
+  <input type="button" value="Play" onclick="javascript:StartGrab()" />
+  <input type="button" value="Stop" onclick="javascript:StopGrab()" />
+  <input type="text" id="source" value="http://217.211.159.251:8080/axis-cgi/mjpg/video.cgi?resolution=640x480" size="100" />
+   
+  <br/>
+  
+  <object ID="ipcamx" width="720" height="576" classid="CLSID:E9FBB53F-3373-4568-A7D3-D0E160EAF912">  
+  </object>
+
+<script type="text/javascript">
+  var tmr;
+  var width;
+  var height;
+  var fps;
+  
+  function StartGrab()
+  {
+    document.ipcamx.Initialize();
+    document.ipcamx.Source = document.getElementById("source").value; 
+    document.ipcamx.Configure(5000);     
+    document.ipcamx.Update = 1;
+    document.ipcamx.Timeout = 2000;
+      
+    fps = document.ipcamx.FPS;
+    width = document.ipcamx.Width;
+    height = document.ipcamx.Height;
+    //tmr = window.setInterval("Grab()", 1.0/fps*1000);        
+  }
+  
+  function StopGrab()
+  {
+    window.clearInterval(tmr); 
+    document.ipcamx.Unconfigure();
+    document.ipcamx.Finalize();  
+  }    
+  
+  function Grab()
+  {
+    if (document.ipcamx.Grab() != 1)
+      StopGrab();
+  }
+  
+</script>
+
+</head>
+
+</html>

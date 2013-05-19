@@ -1,0 +1,9 @@
+; IPCamX.def : déclare les paramètres de module.
+
+LIBRARY      "IPCamX.OCX"
+
+EXPORTS
+	DllCanUnloadNow     PRIVATE
+	DllGetClassObject   PRIVATE
+	DllRegisterServer   PRIVATE
+	DllUnregisterServer PRIVATE
