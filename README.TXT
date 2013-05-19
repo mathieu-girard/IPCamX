@@ -8,7 +8,9 @@ Installation:
 - Install OpenCV for Windows (according to the right version of Visual Studio)
 - Compile 3rd parties module from OpenCV with CMake if needed
 - Generate lib from libvlc.dll : http://wiki.videolan.org/GenerateLibFromDll.
+
 - Others source here : http://code.google.com/p/msinttypes/
+- Install LabVIEW 2010 or later if needed plus Vision Development Module
 
 Use:
 - Under Demo\Demo IE.htm for testing into Internet Explorer
